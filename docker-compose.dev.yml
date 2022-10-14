@@ -1,0 +1,39 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DATABASE=postgres
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  zipline:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    restart: unless-stopped
+    environment:
+      - CORE_HTTPS=false
+      - CORE_SECRET=changethislol
+      - CORE_HOST=0.0.0.0
+      - CORE_PORT=3000
+      - CORE_DATABASE_URL=postgres://postgres:postgres@postgres/postgres
+      - CORE_LOGGER=true
+    volumes:
+      - '$PWD/uploads:/zipline/uploads'
+      - '$PWD/public:/zipline/public'
+    depends_on:
+      - 'postgres'
+
+volumes:
+  pg_data:

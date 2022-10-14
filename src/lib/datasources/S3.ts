@@ -17,7 +17,7 @@ export class S3 extends Datasource {
       secretKey: config.secret_access_key,
       pathStyle: config.force_s3_path,
       port: 9000,
-      useSSL: config.use_ssl,
+      useSSL: true,
       region: config.region,
     });
 

@@ -28,4 +28,4 @@ export default function Logout() {
   );
 }
 
-Logout.title = 'Zipline - Logout';
+Logout.title = 'LunarX - Logout';

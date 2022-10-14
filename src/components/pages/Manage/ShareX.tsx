@@ -4,7 +4,7 @@ import { GeneratorModal } from './GeneratorModal';
 export default function ShareX({ user, open, setOpen }) {
   const [config, setConfig] = useState({
     Version: '13.2.1',
-    Name: 'Zipline',
+    Name: 'LunarX',
     DestinationType: 'ImageUploader, TextUploader',
     RequestMethod: 'POST',
     RequestURL: `${window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '')}/api/upload`,
@@ -51,7 +51,7 @@ export default function ShareX({ user, open, setOpen }) {
 
     const pseudoElement = document.createElement('a');
     pseudoElement.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(config, null, '\t')));
-    pseudoElement.setAttribute('download', 'zipline.sxcu');
+    pseudoElement.setAttribute('download', 'lunarx.sxcu');
     pseudoElement.style.display = 'none';
     document.body.appendChild(pseudoElement);
     pseudoElement.click();

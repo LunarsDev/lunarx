@@ -23,7 +23,7 @@ async function start() {
   // annoy user if they didnt change secret from default "changethis"
   if (config.core.secret === 'changethis') {
     logger.error('Secret is not set!');
-    logger.error('Running Zipline as is, without a randomized secret is not recommended and leaves your instance at risk!');
+    logger.error('Running LunarX as is, without a randomized secret is not recommended and leaves your instance at risk!');
     logger.error('Please change your secret in the config file or environment variables.');
     logger.error('The config file is located at `config.toml`, or if using docker-compose you can change the variables in the `docker-compose.yml` file.');
     logger.error('It is recomended to use a secret that is alphanumeric and randomized.');
@@ -112,7 +112,7 @@ async function start() {
 
   http.listen(config.core.port, config.core.host ?? '0.0.0.0');
 
-  logger.info(`started ${dev ? 'development' : 'production'} zipline@${version} server`);
+  logger.info(`started ${dev ? 'development' : 'production'} LunarX@${version} server`);
 
   stats(prisma);
 

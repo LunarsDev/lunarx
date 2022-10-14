@@ -22,4 +22,4 @@ export default function FiveHundred() {
   );
 }
 
-FiveHundred.title = 'Zipline - 500';
+FiveHundred.title = 'LunarX - 500';

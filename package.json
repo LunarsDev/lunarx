@@ -13,7 +13,7 @@
     "lint": "next lint",
     "docker:run": "docker-compose up -d",
     "docker:down": "docker-compose down",
-    "docker:restart": "npm run docker:down && npm run docker:down",
+    "docker:restart": "npm run docker:down && npm run docker:run",
     "docker:build-dev": "docker-compose --file docker-compose.dev.yml up --build",
     "scripts:read-config": "tsx src/scripts/read-config"
   },

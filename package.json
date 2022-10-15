@@ -1,6 +1,6 @@
 {
   "name": "zipline",
-  "version": "3.5.2",
+  "version": "3.5.3",
   "license": "MIT",
   "scripts": {
     "dev": "cross-env REACT_EDITOR=code NODE_ENV=development tsx src/server",

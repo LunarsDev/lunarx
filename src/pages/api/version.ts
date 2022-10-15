@@ -11,7 +11,7 @@ async function handler(req: NextApiReq, res: NextApiRes) {
 
   const pkg = JSON.parse(await readFile('package.json', 'utf8'));
 
-  const re = await fetch('https://raw.githubusercontent.com/LunarsDev/lunarx/trunk/package.json?token=GHSAT0AAAAAABZWBS37Z5A6HKXGD7GUDZBCY2JJFDA');
+  const re = await fetch('https://raw.githubusercontent.com/LunarsDev/lunarx/trunk/package.json');
   const upstreamPkg = await re.json();
 
   return res.json({

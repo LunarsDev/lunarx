@@ -43,3 +43,5 @@ yarn-error.log*
 config.toml
 uploads/
 dist/
+yarn.lock
+package-lock.json

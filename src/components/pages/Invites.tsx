@@ -99,6 +99,7 @@ function CreateInviteModal({ open, setOpen, updateInvites }) {
           {...form.getInputProps('count')}
           precision={0}
           min={1}
+          max={200}
           stepHoldDelay={200}
           stepHoldInterval={100}
           parser={(v:string) => Number(v.replace(/[^\d]/g, ''))}

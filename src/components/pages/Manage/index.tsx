@@ -266,7 +266,18 @@ export default function Manage() {
               <div key='EmbedVars'>
                 <SmallTable
                   columns={[{ var: 'Var', description: 'Description' }]}
-                  rows={embedvars}
+                  rows={
+                    embedvars
+                      ? embedvars.map((x, i) => ({
+                        var: (
+                          <p>
+                            {x.var}
+                          </p>
+                        ),
+                        description: x.description,
+                      }))
+                      : []
+                  }
                 />
               </div>
             </SimpleGrid>

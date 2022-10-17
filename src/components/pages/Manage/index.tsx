@@ -264,7 +264,7 @@ export default function Manage() {
               ]}
             >
               <div key='EmbedVars'>
-                <Table withBorder withColumnBorders horizontalSpacing='xl' verticalSpacing='md'>
+                <Table horizontalSpacing='xl' verticalSpacing='md'>
                   <thead>
                     <tr>
                       <th>Variable</th>

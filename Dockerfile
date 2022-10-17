@@ -8,7 +8,8 @@ COPY .yarn .yarn
 COPY package.json yarn.lock .yarnrc.yml ./
 
 RUN apk add --no-cache nodejs yarn
-RUN yarn install --immutable
+# RUN yarn install --immutable
+RUN yarn install
 
 FROM alpine:3.16 AS builder
 WORKDIR /build

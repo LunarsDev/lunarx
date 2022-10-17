@@ -1,5 +1,10 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/diced/zipline/trunk/public/zipline_small.png"/>
+  <img src="https://raw.githubusercontent.com/LunarsDev/lunarx/trunk/public/zipline_small.png"/>
+  <i>
+    <b>
+      *Modified/Personalized version of Zipline managed by Lunar
+    </b>
+  </i>
 
   A ShareX/file upload server that is easy to use, packed with features, and with an easy setup!
 

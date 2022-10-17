@@ -1,4 +1,4 @@
-import { Box, Button, Card, ColorInput, FileInput, Group, Image, PasswordInput, Space, Text, TextInput, Title, Tooltip } from '@mantine/core';
+import { Accordion, Box, Button, Card, ColorInput, FileInput, Group, Image, Table, PasswordInput, SimpleGrid, Space, Text, TextInput, Title, Tooltip } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { randomId, useInterval } from '@mantine/hooks';
 import { useModals } from '@mantine/modals';
@@ -226,10 +226,63 @@ export default function Manage() {
     interval.start();
   }, []);
 
+  const embedvars = [
+    { var: '{user.admin}', description: 'outputs yes or no if the user is an administrator' },
+    { var: '{user.id}', description: 'outputs the id of the user' },
+    { var: '{user.name}', description: 'outputs the name of the user' },
+    { var: '{image.id}', description: 'outputs the numeric id of the file' },
+    { var: '{image.file}', description: 'outputs the file name' },
+    { var: '{image.mime}', description: 'outputs the mimetype of the file' },
+    { var: '{image.created_at.full_string}', description: 'outputs the full date' },
+    { var: '{image.created_at.date_string}', description: 'outputs only the date' },
+    { var: '{image.created_at.time_string}', description: 'outputs only the time' },
+  ];
+
+  const varRows = embedvars.map((element) => {
+    <tr key={element.var}>
+      <td>{element.var}</td>
+      <td>{element.description}</td>
+    </tr>;
+  });
+
   return (
     <>
       <Title>Manage User</Title>
-      <MutedText size='md'>Want to use variables in embed text? Visit <Link href='https://zipline.diced.tech/docs/guides/variables'>the docs</Link> for variables</MutedText>
+      {/* <MutedText size='md'>Want to use variables in embed text? Visit <Link href='https://zipline.diced.tech/docs/guides/variables'>the docs</Link> for variables</MutedText> */}
+      <Accordion
+        variant='contained'
+        mb='sm'
+      >
+        <Accordion.Item value='favorite'>
+          <Accordion.Control>Embed Vars</Accordion.Control>
+          <Accordion.Panel>
+            <SimpleGrid
+              cols={3}
+              spacing='lg'
+              breakpoints={[
+                { maxWidth: 'sm', cols: 1, spacing: 'sm' },
+              ]}
+            >
+              <div key='EmbedVars'>
+                <SmallTable
+                  columns={[{ var: 'Var', description: 'Description' }]}
+                  rows={embedvars}
+                />
+              </div>
+            </SimpleGrid>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                paddingTop: 12,
+                paddingBottom: 3,
+              }}
+            >
+            </Box>
+          </Accordion.Panel>
+        </Accordion.Item>
+      </Accordion>
       <form onSubmit={form.onSubmit((v) => onSubmit(v))}>
         <TextInput id='username' label='Username' {...form.getInputProps('username')} />
         <PasswordInput id='password' label='Password' description='Leave blank to keep your old password' {...form.getInputProps('password')} />

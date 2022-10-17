@@ -16,13 +16,13 @@ services:
       retries: 5
 
   zipline:
-    image: ghcr.io/lunarsdev/lunarx:trunk
+    image: ghcr.io/lunarsdev/lunarx
     ports:
       - '3000:3000'
     restart: always
     environment:
       - CORE_HTTPS=false
-      - CORE_SECRET=12354678
+      - CORE_SECRET=changethis
       - CORE_HOST=0.0.0.0
       - CORE_PORT=3000
       - CORE_DATABASE_URL=postgres://postgres:postgres@postgres/postgres

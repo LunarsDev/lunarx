@@ -248,13 +248,13 @@ export default function Manage() {
   return (
     <>
       <Title>Manage User</Title>
-      {/* <MutedText size='md'>Want to use variables in embed text? Visit <Link href='https://zipline.diced.tech/docs/guides/variables'>the docs</Link> for variables</MutedText> */}
+      <MutedText size='md'>Want to use variables in embed text? Open the drown-down below to see a list of currently-available variables.</MutedText>
       <Accordion
         variant='contained'
         mb='sm'
       >
         <Accordion.Item value='favorite'>
-          <Accordion.Control>Embed Vars</Accordion.Control>
+          <Accordion.Control>Embed Variables</Accordion.Control>
           <Accordion.Panel>
             <SimpleGrid
               cols={3}
@@ -264,7 +264,7 @@ export default function Manage() {
               ]}
             >
               <div key='EmbedVars'>
-                <Table>
+                <Table withBorder withColumnBorders horizontalSpacing='xl' verticalSpacing='md'>
                   <thead>
                     <tr>
                       <th>Variable</th>

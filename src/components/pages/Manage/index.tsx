@@ -238,12 +238,12 @@ export default function Manage() {
     { var: '{image.created_at.time_string}', description: 'outputs only the time' },
   ];
 
-  const varRows = embedvars.map((element) => {
+  const varRows = embedvars.map((element) => (
     <tr key={element.var}>
       <td>{element.var}</td>
       <td>{element.description}</td>
-    </tr>;
-  });
+    </tr>
+  ));
 
   return (
     <>
@@ -264,21 +264,15 @@ export default function Manage() {
               ]}
             >
               <div key='EmbedVars'>
-                <SmallTable
-                  columns={[{ var: 'Var', description: 'Description' }]}
-                  rows={
-                    embedvars
-                      ? embedvars.map((x, i) => ({
-                        var: (
-                          <p>
-                            {x.var}
-                          </p>
-                        ),
-                        description: x.description,
-                      }))
-                      : []
-                  }
-                />
+                <Table>
+                  <thead>
+                    <tr>
+                      <th>Variable</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>{varRows}</tbody>
+                </Table>
               </div>
             </SimpleGrid>
             <Box

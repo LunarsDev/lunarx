@@ -31,7 +31,7 @@ function CreateInviteModal({ open, setOpen, updateInvites }) {
 
   const onSubmit = async values => {
     if (!expires.includes(values.expires)) return form.setFieldError('expires', 'Invalid expiration');
-    if (values.count < 1 || values.count > 100) return form.setFieldError('count', 'Must be between 1 and 200');
+    if (values.count < 1 || values.count > 100) return form.setFieldError('count', 'Must be between 1 and 100');
 
     const expires_at = values.expires === 'never' ? null : new Date({
       '30m': Date.now() + 30 * 60 * 1000,
@@ -99,7 +99,6 @@ function CreateInviteModal({ open, setOpen, updateInvites }) {
           {...form.getInputProps('count')}
           precision={0}
           min={1}
-          max={200}
           stepHoldDelay={200}
           stepHoldInterval={100}
           parser={(v:string) => Number(v.replace(/[^\d]/g, ''))}
